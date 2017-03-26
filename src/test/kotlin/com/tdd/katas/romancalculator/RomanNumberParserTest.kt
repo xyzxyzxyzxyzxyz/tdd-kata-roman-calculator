@@ -37,9 +37,14 @@ class RomanNumberParserTest {
         val parser = RomanNumberParser()
 
         assertEquals(20, parser.parseRomanNumber("XX"))
-        assertEquals(200, parser.parseRomanNumber("CC"))
-        assertEquals(2000, parser.parseRomanNumber("MM"))
-    }
+        assertEquals(30, parser.parseRomanNumber("XXX"))
 
+        assertEquals(200, parser.parseRomanNumber("CC"))
+        assertEquals(300, parser.parseRomanNumber("CCC"))
+
+        assertEquals(2000, parser.parseRomanNumber("MM"))
+        assertEquals(5000, parser.parseRomanNumber("MMMMM"))
+
+    }
 
 }
