@@ -78,9 +78,4 @@ class RomanNumberParserTest {
     }
 
 
-    /*
-        - numbers that only require addition
-        - numbers that require subtraction
-     */
-
 }
