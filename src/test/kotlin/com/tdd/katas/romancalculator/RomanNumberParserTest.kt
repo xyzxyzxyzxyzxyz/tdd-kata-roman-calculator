@@ -61,6 +61,23 @@ class RomanNumberParserTest {
         assertEquals(18, parser.parseRomanNumber("XVIII"))
         assertEquals(19, parser.parseRomanNumber("xix"))
     }
+
+    @Test
+    fun numbersFromTwentyOneToTwentyNineThatRequireAdditionAreProperlyConverted() {
+        val parser = RomanNumberParser()
+
+        assertEquals(21, parser.parseRomanNumber("XXI"))
+        assertEquals(22, parser.parseRomanNumber("XXII"))
+        assertEquals(23, parser.parseRomanNumber("XXIII"))
+        assertEquals(24, parser.parseRomanNumber("XXIV"))
+        assertEquals(25, parser.parseRomanNumber("XXV"))
+        assertEquals(26, parser.parseRomanNumber("XXVI"))
+        assertEquals(27, parser.parseRomanNumber("XXVII"))
+        assertEquals(28, parser.parseRomanNumber("XXVIII"))
+        assertEquals(29, parser.parseRomanNumber("Xxix"))
+    }
+
+
     /*
         - numbers that only require addition
         - numbers that require subtraction
