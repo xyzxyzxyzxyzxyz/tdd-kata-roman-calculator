@@ -20,4 +20,16 @@ class RomanNumberParserTest {
         assertEquals(8, parser.parseRomanNumber("VIII"))
         assertEquals(9, parser.parseRomanNumber("IX"))
     }
+
+    @Test
+    fun singleLetterNumbersAreProperlyConverted() {
+        val parser = RomanNumberParser()
+
+        assertEquals(10, parser.parseRomanNumber("X"))
+        assertEquals(50, parser.parseRomanNumber("L"))
+        assertEquals(100, parser.parseRomanNumber("C"))
+        assertEquals(500, parser.parseRomanNumber("D"))
+        assertEquals(1000, parser.parseRomanNumber("M"))
+    }
+
 }
