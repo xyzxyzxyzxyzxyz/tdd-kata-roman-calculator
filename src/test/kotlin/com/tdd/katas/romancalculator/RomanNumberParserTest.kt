@@ -59,7 +59,7 @@ class RomanNumberParserTest {
         assertEquals(16, parser.parseRomanNumber("XVI"))
         assertEquals(17, parser.parseRomanNumber("XVII"))
         assertEquals(18, parser.parseRomanNumber("XVIII"))
-        assertEquals(19, parser.parseRomanNumber("XIX"))
+        assertEquals(19, parser.parseRomanNumber("xix"))
     }
     /*
         - numbers that only require addition

@@ -4,6 +4,8 @@ class RomanNumberParser {
 
     fun parseRomanNumber(romanNumber : String) : Int {
 
+        var romanNumber = romanNumber.toUpperCase()
+
         if (isUnitNumber(romanNumber)) {
             return parseUnitNumber(romanNumber)
         }
