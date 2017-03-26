@@ -1,7 +1,9 @@
 package com.tdd.katas.romancalculator
 
-/**
- * Created by Hexad Spain on 26/03/2017.
- */
 class RomanCalculator {
+
+    fun addRomanNumbers(romanNumber1 : String, romanNumber2 : String) : String {
+        return ""
+    }
+
 }
