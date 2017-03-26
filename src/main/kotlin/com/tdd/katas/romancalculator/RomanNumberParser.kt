@@ -3,6 +3,22 @@ package com.tdd.katas.romancalculator
 class RomanNumberParser {
 
     fun parseRomanNumber(romanNumber : String) : Int {
+        var value = parseUnitNumber(romanNumber)
+
+        if (value != -1) {
+            return value
+        }
+
+        value = parseSingleLetterNumber(romanNumber)
+
+        if (value != -1) {
+            return value
+        }
+
+        throw IllegalArgumentException("Not a valid unit number: " + romanNumber)
+    }
+
+    private fun parseUnitNumber(romanNumber: String) : Int {
         var value : Int = -1
 
         when (romanNumber) {
@@ -17,9 +33,11 @@ class RomanNumberParser {
             "IX"    -> value = 9
         }
 
-        if (value != -1) {
-            return value
-        }
+        return value
+    }
+
+    private fun parseSingleLetterNumber(romanNumber: String) : Int {
+        var value : Int = -1
 
         when (romanNumber) {
             "X"     -> value = 10
@@ -29,13 +47,7 @@ class RomanNumberParser {
             "M"     -> value = 1000
         }
 
-        if (value != -1) {
-            return value
-        }
-
-        throw IllegalArgumentException("Not a valid unit number: " + romanNumber)
+        return value
     }
-
-
 
 }
