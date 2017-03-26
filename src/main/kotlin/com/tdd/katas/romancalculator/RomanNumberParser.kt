@@ -9,13 +9,33 @@ class RomanNumberParser {
             return value
         }
 
+        if (isDuplicatedLetterNumber(romanNumber)) {
+            return parseDuplicatedLetterNumber(romanNumber)
+        }
+
         value = parseSingleLetterNumber(romanNumber)
 
         if (value != -1) {
             return value
         }
 
-        throw IllegalArgumentException("Not a valid unit number: " + romanNumber)
+        throw IllegalArgumentException("Not a valid number: " + romanNumber)
+    }
+
+    private fun isDuplicatedLetterNumber(romanNumber: String) : Boolean {
+        return romanNumber.matches(Regex("X{2,3}|C{2,3}|M{2,}"))
+    }
+
+    private fun parseDuplicatedLetterNumber(romanNumber: String) : Int {
+        var value : Int = 0
+
+        var letter : Char
+        for (i in 0..romanNumber.length-1) {
+            letter = romanNumber[i]
+            value += parseSingleLetterNumber(letter.toString())
+        }
+
+        return value
     }
 
     private fun parseUnitNumber(romanNumber: String) : Int {
