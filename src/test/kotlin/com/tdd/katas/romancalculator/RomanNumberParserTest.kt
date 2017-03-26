@@ -32,4 +32,14 @@ class RomanNumberParserTest {
         assertEquals(1000, parser.parseRomanNumber("M"))
     }
 
+    @Test
+    fun twoDuplicatedLetterNumbersAreProperlyConverted() {
+        val parser = RomanNumberParser()
+
+        assertEquals(20, parser.parseRomanNumber("XX"))
+        assertEquals(200, parser.parseRomanNumber("CC"))
+        assertEquals(2000, parser.parseRomanNumber("MM"))
+    }
+
+
 }
