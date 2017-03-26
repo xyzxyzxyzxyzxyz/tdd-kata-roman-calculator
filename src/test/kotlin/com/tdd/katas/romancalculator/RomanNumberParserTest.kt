@@ -2,88 +2,85 @@ package com.tdd.katas.romancalculator
 
 import org.junit.Test
 import org.junit.Assert.*
+import org.junit.Before
 
 class RomanNumberParserTest {
 
+    var parser : RomanNumberParser? = null
+
+    @Before
+    fun setUp() {
+        parser = RomanNumberParser()
+    }
+
     @Test
     fun emptyStringIsConvertedToZero() {
-        val parser = RomanNumberParser()
-
-        assertEquals(0, parser.parseRomanNumber(""))
+        assertParsedRomanNumberEquals(0, "")
     }
 
 
         @Test
     fun unitsAreConvertedProperly(){
-
-        val parser = RomanNumberParser()
-
-        assertEquals(1, parser.parseRomanNumber("I"))
-        assertEquals(2, parser.parseRomanNumber("II"))
-        assertEquals(3, parser.parseRomanNumber("III"))
-        assertEquals(4, parser.parseRomanNumber("IV"))
-        assertEquals(5, parser.parseRomanNumber("V"))
-        assertEquals(6, parser.parseRomanNumber("VI"))
-        assertEquals(7, parser.parseRomanNumber("VII"))
-        assertEquals(8, parser.parseRomanNumber("VIII"))
-        assertEquals(9, parser.parseRomanNumber("IX"))
+        assertParsedRomanNumberEquals(1, "I")
+        assertParsedRomanNumberEquals(2, "II")
+        assertParsedRomanNumberEquals(3, "III")
+        assertParsedRomanNumberEquals(4, "IV")
+        assertParsedRomanNumberEquals(5, "V")
+        assertParsedRomanNumberEquals(6, "VI")
+        assertParsedRomanNumberEquals(7, "VII")
+        assertParsedRomanNumberEquals(8, "VIII")
+        assertParsedRomanNumberEquals(9, "IX")
     }
 
     @Test
     fun singleLetterNumbersAreProperlyConverted() {
-        val parser = RomanNumberParser()
-
-        assertEquals(10, parser.parseRomanNumber("X"))
-        assertEquals(50, parser.parseRomanNumber("L"))
-        assertEquals(100, parser.parseRomanNumber("C"))
-        assertEquals(500, parser.parseRomanNumber("D"))
-        assertEquals(1000, parser.parseRomanNumber("M"))
+        assertParsedRomanNumberEquals(10, "X")
+        assertParsedRomanNumberEquals(50, "L")
+        assertParsedRomanNumberEquals(100, "C")
+        assertParsedRomanNumberEquals(500, "D")
+        assertParsedRomanNumberEquals(1000, "M")
     }
 
     @Test
     fun twoDuplicatedLetterNumbersAreProperlyConverted() {
-        val parser = RomanNumberParser()
+        assertParsedRomanNumberEquals(20, "XX")
+        assertParsedRomanNumberEquals(30, "XXX")
 
-        assertEquals(20, parser.parseRomanNumber("XX"))
-        assertEquals(30, parser.parseRomanNumber("XXX"))
+        assertParsedRomanNumberEquals(200, "CC")
+        assertParsedRomanNumberEquals(300, "CCC")
 
-        assertEquals(200, parser.parseRomanNumber("CC"))
-        assertEquals(300, parser.parseRomanNumber("CCC"))
-
-        assertEquals(2000, parser.parseRomanNumber("MM"))
-        assertEquals(5000, parser.parseRomanNumber("MMMMM"))
-
+        assertParsedRomanNumberEquals(2000, "MM")
+        assertParsedRomanNumberEquals(5000, "MMMMM")
     }
 
     @Test
     fun numbersFromElevenToNineteenThatRequireAdditionAreProperlyConverted() {
-        val parser = RomanNumberParser()
-
-        assertEquals(11, parser.parseRomanNumber("XI"))
-        assertEquals(12, parser.parseRomanNumber("XII"))
-        assertEquals(13, parser.parseRomanNumber("XIII"))
-        assertEquals(14, parser.parseRomanNumber("XIV"))
-        assertEquals(15, parser.parseRomanNumber("XV"))
-        assertEquals(16, parser.parseRomanNumber("XVI"))
-        assertEquals(17, parser.parseRomanNumber("XVII"))
-        assertEquals(18, parser.parseRomanNumber("XVIII"))
-        assertEquals(19, parser.parseRomanNumber("xix"))
+        assertParsedRomanNumberEquals(11, "XI")
+        assertParsedRomanNumberEquals(12, "XII")
+        assertParsedRomanNumberEquals(13, "XIII")
+        assertParsedRomanNumberEquals(14, "XIV")
+        assertParsedRomanNumberEquals(15, "XV")
+        assertParsedRomanNumberEquals(16, "XVI")
+        assertParsedRomanNumberEquals(17, "XVII")
+        assertParsedRomanNumberEquals(18, "XVIII")
+        assertParsedRomanNumberEquals(19, "xix")
     }
 
     @Test
     fun numbersFromTwentyOneToTwentyNineThatRequireAdditionAreProperlyConverted() {
-        val parser = RomanNumberParser()
-
-        assertEquals(21, parser.parseRomanNumber("XXI"))
-        assertEquals(22, parser.parseRomanNumber("XXII"))
-        assertEquals(23, parser.parseRomanNumber("XXIII"))
-        assertEquals(24, parser.parseRomanNumber("XXIV"))
-        assertEquals(25, parser.parseRomanNumber("XXV"))
-        assertEquals(26, parser.parseRomanNumber("XXVI"))
-        assertEquals(27, parser.parseRomanNumber("XXVII"))
-        assertEquals(28, parser.parseRomanNumber("XXVIII"))
-        assertEquals(29, parser.parseRomanNumber("Xxix"))
+        assertParsedRomanNumberEquals(21, "XXI")
+        assertParsedRomanNumberEquals(22, "XXII")
+        assertParsedRomanNumberEquals(23, "XXIII")
+        assertParsedRomanNumberEquals(24, "XXIV")
+        assertParsedRomanNumberEquals(25, "XXV")
+        assertParsedRomanNumberEquals(26, "XXVI")
+        assertParsedRomanNumberEquals(27, "XXVII")
+        assertParsedRomanNumberEquals(28, "XXVIII")
+        assertParsedRomanNumberEquals(29, "Xxix")
     }
 
+    fun assertParsedRomanNumberEquals(expectedNumber: Int, romanNumber: String) {
+        assertEquals(expectedNumber, parser!!.parseRomanNumber(romanNumber))
+    }
 
 }
