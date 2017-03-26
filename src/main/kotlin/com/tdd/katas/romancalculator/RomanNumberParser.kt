@@ -16,9 +16,12 @@ class RomanNumberParser {
             return parseSingleLetterNumber(romanNumber)
         }
 
+        if(isNumberFromElevenToNineteen(romanNumber)){
+            return parseNumberFromElevenToNineteen(romanNumber)
+        }
+
         throw IllegalArgumentException("Not a valid number: " + romanNumber)
     }
-
 
 
     private fun isDuplicatedLetterNumber(romanNumber: String) : Boolean {
@@ -73,6 +76,16 @@ class RomanNumberParser {
         }
 
         return value
+    }
+
+    private fun isNumberFromElevenToNineteen(romanNumber: String) : Boolean {
+        return romanNumber.length > 1
+                && romanNumber.startsWith("X")
+                && isUnitNumber(romanNumber.substring(1))
+    }
+
+    private fun  parseNumberFromElevenToNineteen(romanNumber: String): Int {
+        return 10 + parseUnitNumber(romanNumber.substring(1))
     }
 
 }
