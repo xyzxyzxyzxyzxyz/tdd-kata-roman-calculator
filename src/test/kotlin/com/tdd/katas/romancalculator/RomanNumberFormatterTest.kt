@@ -15,6 +15,11 @@ class RomanNumberFormatterTest {
     }
 
     @Test
+    fun zeroIsFormattedAsAnEmptyString(){
+        assertFormattedRomanNumberEquals(""    , 0)
+    }
+
+    @Test
     fun singleUnitsAreFormattedProperly(){
         assertFormattedRomanNumberEquals("I"    , 1)
         assertFormattedRomanNumberEquals("II"   , 2)
