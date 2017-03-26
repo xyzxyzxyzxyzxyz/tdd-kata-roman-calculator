@@ -6,6 +6,14 @@ import org.junit.Assert.*
 class RomanNumberParserTest {
 
     @Test
+    fun emptyStringIsConvertedToZero() {
+        val parser = RomanNumberParser()
+
+        assertEquals(0, parser.parseRomanNumber(""))
+    }
+
+
+        @Test
     fun unitsAreConvertedProperly(){
 
         val parser = RomanNumberParser()
