@@ -10,7 +10,7 @@ class RomanCalculatorTest {
 
     @Before
     fun setUp() {
-        calculator = RomanCalculator()
+        calculator = RomanCalculatorFactory.getCalculator()
     }
 
 
