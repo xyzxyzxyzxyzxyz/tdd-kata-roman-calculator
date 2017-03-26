@@ -16,7 +16,6 @@ class RomanNumberFormatterTest {
 
     @Test
     fun singleUnitsAreFormattedProperly(){
-        
         assertFormattedRomanNumberEquals("I"    , 1)
         assertFormattedRomanNumberEquals("II"   , 2)
         assertFormattedRomanNumberEquals("III"  , 3)
@@ -26,12 +25,10 @@ class RomanNumberFormatterTest {
         assertFormattedRomanNumberEquals("VII"  , 7)
         assertFormattedRomanNumberEquals("VIII" , 8)
         assertFormattedRomanNumberEquals("IX"   , 9)
-
     }
 
     @Test
     fun tenthsNumbersAreFormattedProperly() {
-
         assertFormattedRomanNumberEquals("X"    , 10)
         assertFormattedRomanNumberEquals("XX"   , 20)
         assertFormattedRomanNumberEquals("XXX"  , 30)
@@ -46,7 +43,6 @@ class RomanNumberFormatterTest {
 
     @Test
     fun hundredNumbersAreFormattedProperly() {
-
         assertFormattedRomanNumberEquals("C"    , 100)
         assertFormattedRomanNumberEquals("CC"   , 200)
         assertFormattedRomanNumberEquals("CCC"  , 300)
@@ -57,6 +53,20 @@ class RomanNumberFormatterTest {
         assertFormattedRomanNumberEquals("DCCC" , 800)
         assertFormattedRomanNumberEquals("CM"   , 900)
     }
+
+    @Test
+    fun thousandsNumbersAreFormattedProperly() {
+        assertFormattedRomanNumberEquals("M"                , 1000)
+        assertFormattedRomanNumberEquals("MM"               , 2000)
+        assertFormattedRomanNumberEquals("MMM"              , 3000)
+        assertFormattedRomanNumberEquals("MMMM"             , 4000)
+        assertFormattedRomanNumberEquals("MMMMM"            , 5000)
+        assertFormattedRomanNumberEquals("MMMMMM"           , 6000)
+        assertFormattedRomanNumberEquals("MMMMMMM"          , 7000)
+        assertFormattedRomanNumberEquals("MMMMMMMM"         , 8000)
+        assertFormattedRomanNumberEquals("MMMMMMMMM"        , 9000)
+    }
+
 
     private fun assertFormattedRomanNumberEquals(expectedFormat : String, number : Int){
         assertEquals(expectedFormat, numberFormatter.formatRomanNumber(number))
