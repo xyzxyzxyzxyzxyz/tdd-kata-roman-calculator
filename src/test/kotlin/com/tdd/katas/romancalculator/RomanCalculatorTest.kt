@@ -25,7 +25,7 @@ class RomanCalculatorTest {
         // 5 + 1012 = 1017
         assertSummedRomanNumbersAfterFormattingEquals("V", "MXII", "MXVII")
         // 3578 + 7999 = 11577
-        assertSummedRomanNumbersAfterFormattingEquals("MMMDLXXVIII", "MMMMMMMMCMXCIX", "MMMMMMMMMMMDLXXVII")
+        assertSummedRomanNumbersAfterFormattingEquals("MMMDLXXVIII", "MMMMMMMCMXCIX", "MMMMMMMMMMMDLXXVII")
     }
 
 
