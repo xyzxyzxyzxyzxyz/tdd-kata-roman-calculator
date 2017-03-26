@@ -68,6 +68,15 @@ class RomanNumberFormatterTest {
     }
 
 
+    @Test
+    fun compositeNumbersAreFormattedProperly() {
+        assertFormattedRomanNumberEquals("IX"               , 9)
+        assertFormattedRomanNumberEquals("XLIX"             , 49)
+        assertFormattedRomanNumberEquals("CMXCIX"           , 999)
+        assertFormattedRomanNumberEquals("MXC"              , 1090)
+    }
+
+
     private fun assertFormattedRomanNumberEquals(expectedFormat : String, number : Int){
         assertEquals(expectedFormat, numberFormatter.formatRomanNumber(number))
     }
