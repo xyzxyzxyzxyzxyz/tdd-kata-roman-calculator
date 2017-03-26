@@ -15,6 +15,17 @@ class RomanNumberFormatter {
             7 -> "VII"
             8 -> "VIII"
             9 -> "IX"
-            else -> throw IllegalArgumentException("Not a unit: " + number)
+
+            10 -> "X"
+            20 -> "XX"
+            30 -> "XXX"
+            40 -> "XL"
+            50 -> "L"
+            60 -> "LX"
+            70 -> "LXX"
+            80 -> "LXXX"
+            90 -> "XC"
+
+            else -> throw IllegalArgumentException("Not a unit, or a tenth: " + number)
         }
 }
