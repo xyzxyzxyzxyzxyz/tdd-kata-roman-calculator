@@ -23,7 +23,7 @@ class RomanNumberFormatterTest {
     }
 
     @Test
-    fun tenthsNumbersAreFormatedProperly() {
+    fun tenthsNumbersAreFormattedProperly() {
         var numberFormatter = RomanNumberFormatter()
 
         assertEquals("X"    , numberFormatter.formatRomanNumber(10))
@@ -38,4 +38,19 @@ class RomanNumberFormatterTest {
 
     }
 
+    @Test
+    fun hundredNumbersAreFormattedProperly() {
+        var numberFormatter = RomanNumberFormatter()
+
+        assertEquals("C"    , numberFormatter.formatRomanNumber(100))
+        assertEquals("CC"   , numberFormatter.formatRomanNumber(200))
+        assertEquals("CCC"  , numberFormatter.formatRomanNumber(300))
+        assertEquals("CD"   , numberFormatter.formatRomanNumber(400))
+        assertEquals("D"    , numberFormatter.formatRomanNumber(500))
+        assertEquals("DC"   , numberFormatter.formatRomanNumber(600))
+        assertEquals("DCC"  , numberFormatter.formatRomanNumber(700))
+        assertEquals("DCCC" , numberFormatter.formatRomanNumber(800))
+        assertEquals("CM"   , numberFormatter.formatRomanNumber(900))
+
+    }
 }
