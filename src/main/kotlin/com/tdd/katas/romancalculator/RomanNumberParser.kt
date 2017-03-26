@@ -3,39 +3,38 @@ package com.tdd.katas.romancalculator
 class RomanNumberParser {
 
     fun parseRomanNumber(romanNumber : String) : Int {
-        var value = parseUnitNumber(romanNumber)
 
-        if (value != -1) {
-            return value
+        if (isUnitNumber(romanNumber)) {
+            return parseUnitNumber(romanNumber)
         }
 
         if (isDuplicatedLetterNumber(romanNumber)) {
             return parseDuplicatedLetterNumber(romanNumber)
         }
 
-        value = parseSingleLetterNumber(romanNumber)
-
-        if (value != -1) {
-            return value
+        if (isSingleLetterNumber(romanNumber)) {
+            return parseSingleLetterNumber(romanNumber)
         }
 
         throw IllegalArgumentException("Not a valid number: " + romanNumber)
     }
+
+
 
     private fun isDuplicatedLetterNumber(romanNumber: String) : Boolean {
         return romanNumber.matches(Regex("X{2,3}|C{2,3}|M{2,}"))
     }
 
     private fun parseDuplicatedLetterNumber(romanNumber: String) : Int {
-        var value : Int = 0
+        // Get the base number value
+        var value : Int = parseSingleLetterNumber(romanNumber[0].toString())
+        // Multiply it by the length of the string
+        return value * romanNumber.length
+    }
 
-        var letter : Char
-        for (i in 0..romanNumber.length-1) {
-            letter = romanNumber[i]
-            value += parseSingleLetterNumber(letter.toString())
-        }
 
-        return value
+    private fun  isUnitNumber(romanNumber: String): Boolean {
+        return romanNumber.matches(Regex("I|II|III|IV|V|VI|VII|VIII|IX"))
     }
 
     private fun parseUnitNumber(romanNumber: String) : Int {
@@ -51,9 +50,14 @@ class RomanNumberParser {
             "VII"   -> value = 7
             "VIII"  -> value = 8
             "IX"    -> value = 9
+            else    -> throw IllegalArgumentException("Not a unit number: " + romanNumber)
         }
 
         return value
+    }
+
+    private fun  isSingleLetterNumber(romanNumber: String): Boolean {
+        return romanNumber.matches(Regex("X|L|C|D|M"))
     }
 
     private fun parseSingleLetterNumber(romanNumber: String) : Int {
@@ -65,6 +69,7 @@ class RomanNumberParser {
             "C"     -> value = 100
             "D"     -> value = 500
             "M"     -> value = 1000
+            else    -> throw IllegalArgumentException("Not a single letter number: " + romanNumber)
         }
 
         return value
